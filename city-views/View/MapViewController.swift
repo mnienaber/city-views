@@ -7,8 +7,15 @@
 //
 
 import UIKit
+import MapKit
 
-class ViewController: UIViewController {
+class MapViewController: UIViewController, MKMapViewDelegate, UIApplicationDelegate, CLLocationManagerDelegate {
+
+  var appDelegate: AppDelegate!
+  let locationManager = CLLocationManager()
+  let regionRadius: CLLocationDistance = 2000
+  var annotations: [MKAnnotation] = []
+
 
   override func viewDidLoad() {
     super.viewDidLoad()
