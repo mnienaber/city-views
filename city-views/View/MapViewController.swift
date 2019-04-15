@@ -13,7 +13,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIApplicationDeleg
 
   var appDelegate: AppDelegate!
   let locationManager = CLLocationManager()
-  let regionRadius: CLLocationDistance = 2000
+  let regionRadius: CLLocationDistance = 500
   var annotations: [MKAnnotation] = []
 
   @IBOutlet weak var mapView: MKMapView!
@@ -30,7 +30,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIApplicationDeleg
     mapView.delegate = self
     mapView.showsUserLocation = true
 
-//    appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    appDelegate = UIApplication.shared.delegate as? AppDelegate
+    
 
   }
 
@@ -53,6 +54,25 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIApplicationDeleg
   private func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
 
     print("error:: \(error)")
+  }
+
+  func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+
+    let reuseId = "pin"
+
+    var pinView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseId) as? MKPinAnnotationView
+
+    if pinView == nil {
+      pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
+      pinView!.canShowCallout = true
+      pinView!.pinTintColor = .red
+      pinView!.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+    }
+    else {
+      pinView!.annotation = annotation
+    }
+    print(pinView)
+    return pinView
   }
 
 }

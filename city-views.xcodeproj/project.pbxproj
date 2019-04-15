@@ -14,6 +14,7 @@
 		2E7F226D226530FB00B90431 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E7F226B226530FB00B90431 /* LaunchScreen.storyboard */; };
 		2E7F2278226530FB00B90431 /* city_viewsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7F2277226530FB00B90431 /* city_viewsTests.swift */; };
 		2E7F2283226530FB00B90431 /* city_viewsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7F2282226530FB00B90431 /* city_viewsUITests.swift */; };
+		2E7F22922265389A00B90431 /* BlackBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7F22912265389A00B90431 /* BlackBox.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		2E7F227E226530FB00B90431 /* city-viewsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "city-viewsUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E7F2282226530FB00B90431 /* city_viewsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = city_viewsUITests.swift; sourceTree = "<group>"; };
 		2E7F2284226530FB00B90431 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2E7F22912265389A00B90431 /* BlackBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlackBox.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 				2E7F2269226530FB00B90431 /* Assets.xcassets */,
 				2E7F226B226530FB00B90431 /* LaunchScreen.storyboard */,
 				2E7F226E226530FB00B90431 /* Info.plist */,
+				2E7F2293226538AE00B90431 /* Model */,
 			);
 			path = "city-views";
 			sourceTree = "<group>";
@@ -131,6 +134,14 @@
 				2E7F2264226530F900B90431 /* MapViewController.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		2E7F2293226538AE00B90431 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2E7F22912265389A00B90431 /* BlackBox.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -266,6 +277,7 @@
 			files = (
 				2E7F2265226530F900B90431 /* MapViewController.swift in Sources */,
 				2E7F2263226530F900B90431 /* AppDelegate.swift in Sources */,
+				2E7F22922265389A00B90431 /* BlackBox.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
