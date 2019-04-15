@@ -26,23 +26,30 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIApplicationDeleg
     locationManager.desiredAccuracy = kCLLocationAccuracyBest
     locationManager.requestWhenInUseAuthorization()
     locationManager.startUpdatingLocation()
+    print(locationManager)
 
     mapView.delegate = self
     mapView.showsUserLocation = true
-
+    print(mapView)
+    print(regionRadius)
     appDelegate = UIApplication.shared.delegate as? AppDelegate
-    
 
+    let location = [CLLocation]
+    let myLocation = location.last
+    let center = CLLocationCoordinate2D(latitude: myLocation.cordinate.latitude, longitude: location!.coordinate.longitude)
+    let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.65, longitudeDelta: 0.65))
+    locationManager.stopUpdatingLocation()
+    mapView.setRegion(region: region, animated: true)
   }
 
-  private func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
-
-    if status == .authorizedWhenInUse {
-    }
-  }
+//  private func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+//
+//    if status == .authorizedWhenInUse {
+//    }
+//  }
 
   func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-
+    print("location manager function")
     let location = locations.last
     let center = CLLocationCoordinate2D(latitude: location!.coordinate.latitude, longitude: location!.coordinate.longitude)
     let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.65, longitudeDelta: 0.65))
@@ -59,7 +66,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIApplicationDeleg
   func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
 
     let reuseId = "pin"
-
+    print(reuseId)
     var pinView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseId) as? MKPinAnnotationView
 
     if pinView == nil {

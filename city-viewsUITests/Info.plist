@@ -18,13 +18,11 @@
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>&quot;We need your data&quot;</string>
-	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>&quot;We need your data&quot;</string>
-	<key>NSLocationUsageDescription</key>
-	<string>&quot;We need your data&quot;</string>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>&quot;We need your data&quot;</string>
+	<string>We need your data</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>We need your data</string>
+	<key>NSLocationUsageDescription</key>
+	<string>We need data</string>
 </dict>
 </plist>
