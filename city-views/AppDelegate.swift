@@ -13,6 +13,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   var window: UIWindow?
 
+  var sharedSession = URLSession.shared
+  var requestToken: String? = nil
+  var accountRegistered: Int? = nil
+  var accountKey: AnyObject? = nil
+  var sessionExpiration: String? = nil
+  var sessionID: String? = nil
+  var userID: Int? = nil
+  var keyID: Int? = nil
+  var latitude: Double? = nil
+  var longitude: Double? = nil
+  var mediaUrl: String? = nil
+  var mapString: String? = nil
+  var firstName: String? = nil
+  var lastName: String? = nil
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
     // Override point for customization after application launch.
