@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import CoreLocation
 
 class MapViewController: UIViewController, MKMapViewDelegate, UIApplicationDelegate, CLLocationManagerDelegate {
 
@@ -20,19 +21,23 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIApplicationDeleg
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    // Do any additional setup after loading the view.
 
     locationManager.delegate = self
-    locationManager.desiredAccuracy = kCLLocationAccuracyBest
+    locationManager.requestAlwaysAuthorization()
     locationManager.requestWhenInUseAuthorization()
-    locationManager.startUpdatingLocation()
 
     mapView.delegate = self
     mapView.showsUserLocation = true
+
+    locationManager.desiredAccuracy = kCLLocationAccuracyBest
+    locationManager.startUpdatingLocation()
     appDelegate = UIApplication.shared.delegate as? AppDelegate
+
   }
 
-  private func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+  func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+
+    print("auth call")
 
     if status == .authorizedWhenInUse {
     }
@@ -41,8 +46,9 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIApplicationDeleg
   func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
     print("location manager function")
     let location = locations.last
+    print(location)
     let center = CLLocationCoordinate2D(latitude: location!.coordinate.latitude, longitude: location!.coordinate.longitude)
-    let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.65, longitudeDelta: 0.65))
+    let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.08, longitudeDelta: 0.08))
 
     mapView.setRegion(region, animated: true)
     locationManager.stopUpdatingLocation()
@@ -61,7 +67,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIApplicationDeleg
     if pinView == nil {
       pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
       pinView!.canShowCallout = true
-      pinView!.pinTintColor = .red
+      pinView!.pinTintColor = .yellow
       pinView!.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
     }
     else {
@@ -71,5 +77,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIApplicationDeleg
     return pinView
   }
 
+  func fun() -> Bool {
+    return true
+  }
 }
 
