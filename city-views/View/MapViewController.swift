@@ -26,12 +26,9 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIApplicationDeleg
     locationManager.desiredAccuracy = kCLLocationAccuracyBest
     locationManager.requestWhenInUseAuthorization()
     locationManager.startUpdatingLocation()
-    print(locationManager)
 
     mapView.delegate = self
     mapView.showsUserLocation = true
-    print(mapView)
-    print(regionRadius)
     appDelegate = UIApplication.shared.delegate as? AppDelegate
   }
 
@@ -59,7 +56,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIApplicationDeleg
   func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
 
     let reuseId = "pin"
-    print(reuseId)
     var pinView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseId) as? MKPinAnnotationView
 
     if pinView == nil {
