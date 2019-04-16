@@ -33,20 +33,13 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIApplicationDeleg
     print(mapView)
     print(regionRadius)
     appDelegate = UIApplication.shared.delegate as? AppDelegate
-
-//    let location = [CLLocation]()
-//    let myLocation = location.last
-//    let center = CLLocationCoordinate2D(latitude: myLocation.cordinate.latitude, longitude: location!.coordinate.longitude)true
-//    let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.65, longitudeDelta: 0.65))
-//    locationManager.stopUpdatingLocation()
-//    mapView.setRegion(region: region, animated: true)
   }
 
-//  private func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
-//
-//    if status == .authorizedWhenInUse {
-//    }
-//  }
+  private func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+
+    if status == .authorizedWhenInUse {
+    }
+  }
 
   func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
     print("location manager function")
