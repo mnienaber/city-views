@@ -32,6 +32,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIApplicationDeleg
     locationManager.desiredAccuracy = kCLLocationAccuracyBest
     locationManager.startUpdatingLocation()
     appDelegate = UIApplication.shared.delegate as? AppDelegate
+    getMapLocations()
 
   }
 
@@ -44,9 +45,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIApplicationDeleg
   }
 
   func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-    print("location manager function")
+
     let location = locations.last
-    print(location)
     let center = CLLocationCoordinate2D(latitude: location!.coordinate.latitude, longitude: location!.coordinate.longitude)
     let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.08, longitudeDelta: 0.08))
 
@@ -79,6 +79,21 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIApplicationDeleg
 
   func fun() -> Bool {
     return true
+  }
+
+  func getMapLocations() {
+
+    let locations = ListingLocations.init()
+    let lat = locations.chelsea_hotel_lat
+    let long = locations.chelsea_hotel_long
+
+    let annotation = MKPointAnnotation()
+    let coordinate = CLLocationCoordinate2D(latitude: lat, longitude: long)
+
+    annotation.coordinate = coordinate
+    annotation.title = "Chelsea Hotel"
+    self.annotations.append(annotation)
+    self.mapView.addAnnotations(self.annotations)
   }
 }
 

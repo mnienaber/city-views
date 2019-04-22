@@ -15,6 +15,8 @@
 		2E7F2278226530FB00B90431 /* city_viewsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7F2277226530FB00B90431 /* city_viewsTests.swift */; };
 		2E7F2283226530FB00B90431 /* city_viewsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7F2282226530FB00B90431 /* city_viewsUITests.swift */; };
 		2E7F22922265389A00B90431 /* BlackBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7F22912265389A00B90431 /* BlackBox.swift */; };
+		2E9A6F17226E6B8B00DE74E4 /* ListingLocations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9A6F16226E6B8B00DE74E4 /* ListingLocations.swift */; };
+		2E9A6F19226E6D9400DE74E4 /* ListingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9A6F18226E6D9400DE74E4 /* ListingModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		2E7F2282226530FB00B90431 /* city_viewsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = city_viewsUITests.swift; sourceTree = "<group>"; };
 		2E7F2284226530FB00B90431 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2E7F22912265389A00B90431 /* BlackBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlackBox.swift; sourceTree = "<group>"; };
+		2E9A6F16226E6B8B00DE74E4 /* ListingLocations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingLocations.swift; sourceTree = "<group>"; };
+		2E9A6F18226E6D9400DE74E4 /* ListingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +144,8 @@
 			isa = PBXGroup;
 			children = (
 				2E7F22912265389A00B90431 /* BlackBox.swift */,
+				2E9A6F16226E6B8B00DE74E4 /* ListingLocations.swift */,
+				2E9A6F18226E6D9400DE74E4 /* ListingModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -278,6 +284,8 @@
 				2E7F2265226530F900B90431 /* MapViewController.swift in Sources */,
 				2E7F2263226530F900B90431 /* AppDelegate.swift in Sources */,
 				2E7F22922265389A00B90431 /* BlackBox.swift in Sources */,
+				2E9A6F17226E6B8B00DE74E4 /* ListingLocations.swift in Sources */,
+				2E9A6F19226E6D9400DE74E4 /* ListingModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -455,14 +463,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZXKDF4ZF72;
 				INFOPLIST_FILE = "city-views/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.city-views";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -474,14 +482,14 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZXKDF4ZF72;
 				INFOPLIST_FILE = "city-views/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.city-views";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
