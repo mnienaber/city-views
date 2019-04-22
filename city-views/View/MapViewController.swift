@@ -17,6 +17,24 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIApplicationDeleg
   let regionRadius: CLLocationDistance = 500
   var annotations: [MKAnnotation] = []
 
+  let collectionView: UICollectionView = {
+    let frame = CGRect(x: 0, y: 600, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height - 600)
+    let col = UICollectionView(frame: frame, collectionViewLayout: UICollectionViewFlowLayout())
+    col.layer.borderWidth = 1.0
+    col.backgroundColor = UIColor.white
+    col.isOpaque = false
+    return col
+  }()
+
+  let switchView = UISwitch()
+
+  @objc func switched(s: UISwitch){
+    let origin: CGFloat = s.isOn ? view.frame.height : 30
+    UIView.animate(withDuration: 0.35) {
+      self.collectionView.frame.origin.y = origin
+    }
+  }
+
   @IBOutlet weak var mapView: MKMapView!
 
   override func viewDidLoad() {
@@ -33,6 +51,12 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIApplicationDeleg
     locationManager.startUpdatingLocation()
     appDelegate = UIApplication.shared.delegate as? AppDelegate
     getMapLocations()
+
+    switchView.frame = CGRect(x: 0, y: 20, width: 40, height: 20)
+    switchView.addTarget(self, action: #selector(switched), for: .valueChanged)
+
+    view.addSubview(switchView)
+    view.addSubview(collectionView)
 
   }
 
@@ -86,12 +110,13 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIApplicationDeleg
     let locations = ListingLocations.init()
     let lat = locations.chelsea_hotel_lat
     let long = locations.chelsea_hotel_long
+    let listingName = locations.listingName
 
     let annotation = MKPointAnnotation()
     let coordinate = CLLocationCoordinate2D(latitude: lat, longitude: long)
 
     annotation.coordinate = coordinate
-    annotation.title = "Chelsea Hotel"
+    annotation.title = listingName
     self.annotations.append(annotation)
     self.mapView.addAnnotations(self.annotations)
   }

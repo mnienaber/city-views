@@ -14,7 +14,7 @@ struct ListingLocations {
 
 //  let objectId: String
 //  let uniqueKey: String
-//  let listingName: String
+  let listingName = "Chelsea Hotel"
 //  let mapString: String
 //  let mediaURL: String
 //  let latitude: Double
