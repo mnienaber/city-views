@@ -51,13 +51,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIApplicationDeleg
     locationManager.startUpdatingLocation()
     appDelegate = UIApplication.shared.delegate as? AppDelegate
     getMapLocations()
-
-    switchView.frame = CGRect(x: 0, y: 20, width: 40, height: 20)
-    switchView.addTarget(self, action: #selector(switched), for: .valueChanged)
-
-    view.addSubview(switchView)
-    view.addSubview(collectionView)
-
+//    callPanel()
   }
 
   func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
@@ -119,6 +113,20 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIApplicationDeleg
     annotation.title = listingName
     self.annotations.append(annotation)
     self.mapView.addAnnotations(self.annotations)
+  }
+
+  func callPanel() {
+    
+    switchView.frame = CGRect(x: 0, y: 20, width: 40, height: 20)
+    switchView.addTarget(self, action: #selector(switched), for: .valueChanged)
+
+    view.addSubview(switchView)
+    view.addSubview(collectionView)
+    print("change")
+  }
+  @IBAction func callPanelButton(_ sender: Any) {
+
+    callPanel()
   }
 }
 
